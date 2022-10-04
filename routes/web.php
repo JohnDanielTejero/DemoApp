@@ -55,9 +55,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // });
 
 Route::get('/myroles', function(){
-    $user = Auth::user();
-    $user_roles = $user->roles;
-
+    $user_roles = Auth::user()->roles;
     return view('roles')->with('user_roles',$user_roles);
 })->middleware(['auth', 'authorizerole:Admin']);
 
