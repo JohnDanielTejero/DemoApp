@@ -59,5 +59,5 @@ Route::get('/myroles', function(){
     $user_roles = $user->roles;
 
     return view('roles')->with('user_roles',$user_roles);
-})->middleware(['auth']);
+})->middleware(['auth', 'authorizerole:Admin']);
 
